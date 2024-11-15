@@ -1,0 +1,1 @@
+{"height":288.0098887515451,"width":466.0,"size_behavior":0,"conditions":[[1,"Warning: \u001B[38;5;232mRemoved 67 rows containing non-finite values (`stat_density2d()`).\u001B[39m"],[1,"Warning: \u001B[38;5;232mRemoved 67 rows containing missing values (`geom_point()`).\u001B[39m"]]}

@@ -1,0 +1,56 @@
+---
+title: "Progress Memo"
+subtitle: |
+  | Final Project 
+  | Data Visualization (STAT 302)
+author: "ALAN GUO"
+date: today
+
+format:
+  html:
+    toc: true
+    embed-resources: true
+---
+
+## Data source
+
+I am using data from a website called baseballsavant. They have literally every data from every at bad from every game. I will be probably honing into pitching data, specifically form 2023, from the player Shohei Ohtani.
+
+https://baseballsavant.mlb.com/statcast_search (here is search page)
+
+https://tinyurl.com/ohtanipitch (here is the exact search, and click on download data as csv on top right of table)
+
+## Basic data description
+
+```{r}
+library(tidyverse)
+library(skimr)
+
+ohtani <- read_csv("ohtani.csv")
+
+skim_without_charts(ohtani)
+```
+
+There are 2094 observations, 92 variables
+
+```{r}
+variable_types <- sapply(ohtani, class)
+type_counts <- table(variable_types)
+
+print(type_counts)
+```
+
+There does not seem to be a missing data issue for most variables. Some reason all the logical data types are missing. Other than that, other missing data using intuition is because a batter didn't swing or hit, so a data value including a hit where a pitch was not hit would obviously have no data.
+
+## Why this data
+
+Baseball is extremely stat oriented, and you might have heard of sabermetrics, which is essentially the deep analysis of the numbers behind baseball (watch Moneyball). I like baseball and Ohtani is my favorite player, and there is ample data that exists out there so there is a lot I can do research about.
+
+## Visualization plan
+
+I plan to do a presentation and static graphics. I like the aesthetic display of stats in a presentation format and I think static graphics will be adequate for what I want to show. I plan to make a graphic with a spraychart of where ohtani's pitches display in the strikezone, as well as many graphs that display how efficient his different pitches are (fastball, curveball, etc.). I also want to see which pitches are more common depending on the count (3-2, 0-0, 3-0). There really is a lot of things I can analyze, and I will probably think of more visualizations as I do my project.
+
+### Misc
+
+I might decide to do not just ohtani and not just 2023, and all pitching data, but when I went to download it the data is just too massive. I might try just downloading the columns I need so it is more usable, but there is plenty of data for what I've described so far.
+

@@ -1,0 +1,85 @@
+---
+title: "Presentation"
+format: 
+  revealjs: 
+    footer: "Slides by Alan Guo"
+    incremental: true  
+    slide-number: true
+editor: visual
+---
+
+## Hello
+
+For grading, the 3rd slide is code with image with highlighted code, the 4th slide is an image, and the 5th slide is two columns. These are the additional 4 features too.
+
+-   Incremental lists (this one right here)
+
+-   Slide transitions, there will be one to the next slide
+
+-   Footer below each slide
+
+-   Footnote[^1]
+
+[^1]: A footnote
+
+::: aside
+This is a footnote
+:::
+
+## Some code from L04 {.smaller .scrollable transition="slide"}
+
+The highlighted line is what makes the scale colors different (viridis)
+
+```{r}
+library(tidyverse)
+library(sf)
+library(statebins)
+library(viridis)
+library(tidycensus)
+library(mapview)
+library(tigris)
+library(raster)
+library(janitor)
+library(geodata)
+
+load("data/US_income.rda")
+
+US_income <- mutate(
+  US_income,
+  income_bins = cut(
+    ifelse(is.na(median_income), 25000, median_income),
+    breaks = c(0, 40000, 50000, 60000, 70000, 80000),
+    labels = c("< $40k", "$40k to $50k", 
+               "$50k to $60k", "$60k to $70k", "> $70k"),
+    right = FALSE
+  )
+)
+```
+
+```{r}
+#| code-line-numbers: "5"
+#| echo: true
+
+ggplot(US_income, 
+       aes(state = name, fill = income_bins)) +
+  statebins::geom_statebins() +
+  theme_statebins() +
+  scale_fill_viridis(discrete = TRUE) +
+  labs(fill = "Median\nIncome")
+```
+
+## I like baseball
+
+![Ohtani with his new team LA Dodgers](image/ohtani.jpg)
+
+## Columns
+
+::: columns
+::: column
+This column is 40% of the width
+:::
+
+::: column
+This column is 60% of the width
+:::
+:::

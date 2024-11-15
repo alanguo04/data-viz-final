@@ -1,0 +1,13 @@
+"0","#| echo: false"
+"0","ggplot(ohtani, aes(x = pfx_x, y = pfx_z)) +"
+"0","  scale_color_brewer(labels = c(""Curveball"","
+"0","                                ""Cutter"","
+"0","                                ""4-Seam Fastball"","
+"0","                                ""Splitter"","
+"0","                                ""Sinker"","
+"0","                                ""Slider"","
+"0","                                ""Sweeper"")) + "
+"0","  scale_colour_brewer(palette = ""Set3"") +"
+"0","  geom_point(aes(color = pitch_type))"
+"2","[38;5;232mScale for [32mcolour[38;5;232m is already present.
+Adding another scale for [32mcolour[38;5;232m, which will replace the existing scale.[39m"

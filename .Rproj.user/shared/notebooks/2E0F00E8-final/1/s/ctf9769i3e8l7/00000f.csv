@@ -1,0 +1,6 @@
+"0","library(tidyverse)"
+"0","library(baseballr)"
+"0","library(RColorBrewer)"
+"0",""
+"0","ohtani <- read_csv(""data/ohtani.csv"", show_col_types = FALSE)"
+"2","New names:"
